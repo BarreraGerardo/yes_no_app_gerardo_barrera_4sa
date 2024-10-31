@@ -16,6 +16,7 @@ class ChatProvider extends ChangeNotifier{
     messageList.add(newMessage);
 //Notifica si algo de provider cambió para que se guarde en el estado
     notifyListeners();
+    //Mueve el scroll
     moveScrollToBottom();
   }
     //Mover el scroll al último mensaje

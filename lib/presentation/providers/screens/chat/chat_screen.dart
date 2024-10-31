@@ -13,7 +13,7 @@ class ChatScreen extends StatelessWidget {
         leading: const Padding(
           padding:  EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage('https://cdn04.cdn.justjared.com/wp-content/uploads/2014/04/thorne-mtvmovie/thumbs/bella-thorne-zendaya-mtv-movie-awards-2014-07.jpg'),
+            backgroundImage: NetworkImage('https://i.pinimg.com/originals/d4/b0/ca/d4b0cae4b50c297f813b0664069013d3.jpg'),
           ),
         ),
         title: const Text('Mi amor'),
