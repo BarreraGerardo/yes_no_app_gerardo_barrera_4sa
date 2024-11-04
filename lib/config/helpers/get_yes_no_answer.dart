@@ -10,6 +10,7 @@ class GetYesNoAnswer {
   //Obtener la respuesta
   Future <Message> getAnswer() async {
     //Almacenar la peticion Get en una variable
+    // ignore: unused_local_variable
     final response = await _dio.get('https://yesno.wtf/api');
 
     //Generar el error

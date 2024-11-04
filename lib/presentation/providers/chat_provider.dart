@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/domain/entities/message.dart';
 
@@ -20,8 +21,8 @@ class ChatProvider extends ChangeNotifier{
     moveScrollToBottom();
   }
     //Mover el scroll al último mensaje
-
     Future<void> moveScrollToBottom()async{
+      if (chatScrollController.hasClients){
       //Un pequeño atraso en la animación para garantizar que siempre 
       //se verá aún cuando se envíe mensajes cortos y rápidos
       await Future.delayed(const Duration(seconds:1));
@@ -32,6 +33,15 @@ class ChatProvider extends ChangeNotifier{
       duration: const Duration(milliseconds:300), 
       //"Rebote" al final de la animación
       curve: Curves.easeOut);
+      void sendMessage(String message) {
+  if (message.isNotEmpty) {
+    var _messages;
+    _messages.add(message);
+    print("Cantidad de mensajes: ${_messages.length}");
+    notifyListeners();
+  }
+}
+      }
     }
   
 }
