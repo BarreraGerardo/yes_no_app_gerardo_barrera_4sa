@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/config/theme/app_theme.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/screens/chat/chat_screen.dart';
-import 'package:yes_no_app_gerardo_barrera_4sa/presentation/screens/chat/chat_screen.dart';
 
 void main() => runApp(const MyApp());
 

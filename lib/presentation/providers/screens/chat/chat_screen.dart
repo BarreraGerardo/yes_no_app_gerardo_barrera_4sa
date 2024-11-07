@@ -5,9 +5,6 @@ import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/chat_provi
 import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/widgets/chat/her_message_bubble.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/widgets/chat/my_message_bubble.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/presentation/providers/widgets/chat/shared/message_field_box.dart';
-import 'package:yes_no_app_gerardo_barrera_4sa/presentation/widgets/chat/her_message_bubble.dart';
-import 'package:yes_no_app_gerardo_barrera_4sa/presentation/widgets/chat/my_message_bubble.dart';
-import 'package:yes_no_app_gerardo_barrera_4sa/presentation/widgets/chat/shared/message_field_box.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
