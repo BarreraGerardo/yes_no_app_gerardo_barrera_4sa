@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/domain/entities/message.dart';
+import 'package:yes_no_app_gerardo_barrera_4sa/infrastructure/models/yes_no_model.dart';
 
 class GetYesNoAnswer {
 
@@ -12,8 +13,9 @@ class GetYesNoAnswer {
     //Almacenar la peticion Get en una variable
     // ignore: unused_local_variable
     final response = await _dio.get('https://yesno.wtf/api');
-
-    //Generar el error
-    throw UnimplementedError();
+//Almacenar la data de la respuesta en una variable
+final yesNoModel = YesNoModel.fromJsonMap(response.data);
+//Devolver la instancia de "Message" creada en el modelo
+return yesNoModel.toMessageEntity();
   } 
 }
