@@ -11,6 +11,9 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _ChatProvider = context.watch<ChatProvider>();
+    final isOnline = true; // Cambia este valor según el estado de conexión del usuario
+
     return Scaffold(
       appBar: AppBar(
         leading: const Padding(
@@ -21,7 +24,16 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text('Mi amor'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Mi amor'),
+            Text(
+              isOnline ? 'En línea' : 'Desconectado', // Muestra el estado en línea
+              style: const TextStyle(fontSize: 12, color: Colors.green),
+            ),
+          ],
+        ),
         centerTitle: false,
       ),
       body: const _ChatView(),
@@ -49,7 +61,9 @@ class _ChatView extends StatelessWidget {
                   final message = chatProvider.messageList[index];
                   return (message.fromWho == FromWho.me)
                       ? MyMessageBubble(message: message)
-                      : HerMessageBubble(message: message,);
+                      : HerMessageBubble(
+                          message: message,
+                        );
                 },
               ),
             ),

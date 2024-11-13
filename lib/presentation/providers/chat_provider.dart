@@ -1,23 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/config/helpers/get_yes_no_answer.dart';
 import 'package:yes_no_app_gerardo_barrera_4sa/domain/entities/message.dart';
 
 class ChatProvider extends ChangeNotifier {
   List<Message> messageList = [
-    Message(text: 'Hola amor', fromWho: FromWho.me),
-    Message(text: 'Ya regresaste del trabajo?', fromWho: FromWho.me)
+    Message(text: 'Hola amor', fromWho: FromWho.me, timestamp: DateTime.timestamp(), isRead: true),
+    Message(text: 'Ya regresaste del trabajo?', fromWho: FromWho.me, timestamp: DateTime.timestamp(), isRead: true)
   ];
 
   final ScrollController chatScrollController = ScrollController();
 
     //Instancia de la clase GetYesNoAnswer
-    final getYesNoAnswer = GetYesNoAnswer();
+    final getYesNoAnswer = GetYesNoanswer();
   Future<void> sendMessage(String text) async {
     // Evita enviar mensajes vacíos (Ejercicio 1)
     if (text.trim().isEmpty) return;
 
     // Añade el mensaje a la lista
-    final newMessage = Message(text: text, fromWho: FromWho.me);
+    final newMessage = Message(text: text, fromWho: FromWho.me, timestamp: DateTime.timestamp(), isRead: true);
     messageList.add(newMessage);
     if (text.endsWith('?')) {
       herReply();
@@ -25,7 +26,9 @@ class ChatProvider extends ChangeNotifier {
     notifyListeners();
 
     // Imprime la cantidad de mensajes en la consola (Ejercicio 2)
-    print("Cantidad de mensajes: ${messageList.length}");
+    if (kDebugMode) {
+      print("Cantidad de mensajes: ${messageList.length}");
+    }
 
     // Mueve el scroll al fondo para mostrar el mensaje recién añadido
     moveScrollToBottom();

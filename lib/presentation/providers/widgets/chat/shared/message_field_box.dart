@@ -5,6 +5,7 @@ class MessageFieldBox extends StatelessWidget {
   final ValueChanged<String> onValue;
   const MessageFieldBox({super.key, required this.onValue});
   
+  // ignore: recursive_getters
   String get message => message;
 
   @override
